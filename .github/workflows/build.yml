@@ -1,21 +1,23 @@
 name: build-html
 
 on:
-  pull_request:
   push:
     branches:
       - main
+  pull_request:
+  release:
+    types: [published]
+  workflow_dispatch:  # Allows manual triggering from GitHub UI
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
@@ -27,47 +29,42 @@ jobs:
           cd web
           make
 
-      - name: Set the CNAME file for our custom domain
+      - name: Set the CNAME file for custom domain
         run: echo "CATHY-Org.github.io" > web/_build/CNAME
 
-      # Store the docs as a build artifact so we can deploy it later
-      - name: Upload HTML documentation as an artifact
-        uses: actions/upload-artifact@v2
+      - name: Upload HTML documentation artifact
+        uses: actions/upload-artifact@v3
         with:
           name: docs-${{ github.sha }}
           path: web/_build/
 
-  #############################################################################
-  # Publish the documentation to gh-pages
   publish:
     runs-on: ubuntu-latest
     needs: build
-    if: github.event_name == 'release' || github.event_name == 'push'
+    if: github.event_name == 'release' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      # Fetch the built docs from the "build" job
       - name: Download HTML documentation artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: docs-${{ github.sha }}
           path: web/_build/
 
-      - name: Checkout the gh-pages branch in a separate folder
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v3
         with:
           ref: gh-pages
-          # Checkout to this folder instead of the current one
           path: deploy
-          # Download the entire history
           fetch-depth: 0
 
       - name: Push to gh-pages
-        uses: peaceiris/actions-gh-pages@8a36f3edfc5d1cbae6b09e6f5a7d7b19e5b7a73b
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: web/_build/
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+
