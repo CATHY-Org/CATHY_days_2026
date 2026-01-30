@@ -1,15 +1,15 @@
-# CATHY days 2023 🚀
-Organisation of the 2nd agrogeophysics seminar
+# CATHY days 2026 🚀
+Organisation of the CATHY days
 
-- Board: B. Mary, D. la Cecilia, M. Camporese, C. Paniconi, M. Putti
-- Location: CENTRE FOR STUDIES ON ALPINE ENVIRONMENT in San Vito di Cador
-- Date: **May 31st and June 1st, 2023**
-- The seminar is supported by Centro di Idrologia Dino Tonini
+- Board: D. la Cecilia, B. Mary, Giovanni Moretti, M. Camporese, C. Paniconi, M. Putti
+- Location: Modena
+- Date: **July 3rd, 2026**
+- The seminar is supported by??
 
 
 
 
 ## Key dates
 
-- Registration deadline : December 23rd, 2022
-- 📅 Seminar days: May 31st and June 1st, 2023
+- Registration deadline : ??
+- 📅 Seminar days: July 3rd, 2026
