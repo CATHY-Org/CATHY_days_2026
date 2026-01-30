@@ -13,12 +13,12 @@ template: base.html
 # {{ page.custom_page_title }}
 -->
 
-# CATHY days 2023
+# CATHY days 2026
 
 
 
 <p class="lead">
-We are thrilled to announce that in 2023 we will renew the tradition and organise the <b>CATchment HYdrology (CATHY) days </b>!
+We are thrilled to announce that in **2026** we will renew the tradition and organise the <b>CATchment HYdrology (CATHY) days </b>!
 
 </p>
 
@@ -47,8 +47,8 @@ The meeting will be focused on a number of talks that will address current progr
 ## Key dates
 
 
-* **Registration deadline** : December 23rd, 2022
-* 📅 **Seminar days:** May 31st and June 1st, 2023
+* **Registration deadline** : **??, 2026**
+* 📅 **Seminar days:** July 3rd, 2026
 
 <hr>
 
@@ -60,31 +60,25 @@ There is <span style="color:red;">no registration fee</span> for the workshop; h
 
 </div>
 
-Want to join? [Register are closed](https://docs.google.com/forms/d/e/1FAIpQLScyDlY_pI9nebjsEMidjBKBpsnzTPT81SnPWstx3w0kQHSFDg/viewform?embedded=true)!
-
-<!--
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyDlY_pI9nebjsEMidjBKBpsnzTPT81SnPWstx3w0kQHSFDg/viewform?embedded=true" width="640" height="300" frameborder="0" marginheight="0" marginwidth="0">Caricamento…</iframe>
--->
+Want to join? [Registration are open]()!
 
 
 <hr>
 
-## Venue: San Vito di Cadore (IT)
+## Venue: Modena (IT)
 
 <div class="callout callout-success">
 
-The event will be held at the [CENTER FOR STUDIES ON ALPINE ENVIRONMENT](https://intra.tesaf.unipd.it/sanvito/english.asp) in San Vito di Cadore (IT)
+The event will be held at the ?? in Modena (IT)
 </div>
 
 
-🚌 The easiest way to reach the workshop venue from Venice Airport is by taking the bus [cortina express 100](https://www.cortinaexpress.it/it/san-vito-di-cadore/). The bus stops at San Vito di Cadore-Centro, and from there, you can have a nice walk and enjoy the view to reach the conference centre. 
+🚌 The easiest way to reach the workshop venue from ---
 
-Additional information can be found on the workshop [Centre for Studies in Alpine Environment](https://intra.tesaf.unipd.it/sanvito/doc/LPT.pdf)
-
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10995.382777225355!2d12.2138519!3d46.4517544!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf6f600dc10482619!2sCentro%20Studi%20per%20l&#39;Ambiente%20Alpino%20-%20Universit%C3%A0%20Degli%20Studi%20Di%20Padova!5e0!3m2!1sfr!2ses!4v1668416547342!5m2!1sfr!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+Additional information can be found on the workshop [Venue link]()
 
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64218.80988094948!2d10.88053281601105!3d44.650169744329766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fef12dd4964e1%3A0x96751e7d492b7f28!2sModena%2C%20Province%20of%20Modena%2C%20Italy!5e1!3m2!1sen!2ses!4v1769775727174!5m2!1sen!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
 <hr>

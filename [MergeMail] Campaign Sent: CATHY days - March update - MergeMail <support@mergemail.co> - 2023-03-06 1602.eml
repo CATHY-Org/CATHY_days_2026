@@ -1,0 +1,807 @@
+Delivered-To: benjamin.mary@unipd.it
+Received: by 2002:a05:7000:d508:b0:480:fb47:4bd3 with SMTP id li8csp2182243mab;
+        Mon, 6 Mar 2023 07:02:37 -0800 (PST)
+X-Google-Smtp-Source: AK7set+2I1eWNdSCaevmYe3cC3WJq3+FmaY/XoxHADlZgiq1RKLmZo49uU9pw0zoUOeVOhNvJ3LD
+X-Received: by 2002:ac8:5812:0:b0:3bf:dc2d:f29a with SMTP id g18-20020ac85812000000b003bfdc2df29amr17958829qtg.18.1678114956825;
+        Mon, 06 Mar 2023 07:02:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1678114956; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ewtgT5u7CZkW+5EPq4Jft7CGs1S3iyqhrdn6DHoVviX/kNt5OdPe4CWZx3wzS5fyJE
+         TS05v9DTpky7QkOKAL2j0fSUlP7eflQbNZZgJtPdNV0nG8Xhj6T3zrLtkVctPIUyADol
+         E7VtDd2tO22C3mRn7Cm64uKt2/BTVZAnh4Szcek2yOncByHr8BbPTLvKVtP20VLeuNkR
+         2bUqC1VDawNDCDIaZttNWv4cUjs7HxhOAR8n6zwAG3q1E3iLDRAZ/Og4sTY4Nesr6U3d
+         OTBPlYpYcrEkt8/WjhNPBzLx22zHRbvqFA8uhGoyyLOog8M8pYbz1Y9jceGQc4LD7Z52
+         akpQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:to:mime-version:subject:message-id:from
+         :date:dkim-signature;
+        bh=xISL8HCyByf2mryZo9Nm5VtG7MT1hlDQdcHFU+CMi4M=;
+        b=fCsI1ZbBOkgVBp17njyjFnle7wtrvJ4t7AMY909SB2J57yi5CwR2MnPqLHfMsjS5t+
+         DFnbuDdWBdADf0I0cKOCEhQ9EIi0uWJ9YTm8+YSrrSOAZW2M7mPx79SNMIHpFjUv9sZf
+         MBsJVz9wFCCZngQwDxpd98748TtxPYJ3/3aePjZkfpFz+tSmGmfCdi9kwlhcn+4eEEtO
+         N0HgP4GBH30nOqZTExZK/QSxBH6p42WRPqMLbZM0p+BhFX87wFpaOJqdljLbrQmQsCJf
+         TIWHK4Zv0XrNglRYdW23Iib0mq/9W7KYt1HSNy+PPWx883d3kfWF4bmyKJlwr/K/cfDI
+         OHYg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mergemail.co header.s=s1 header.b=MtAH3kxk;
+       spf=pass (google.com: domain of bounces+20074681-817f-benjamin.mary=unipd.it@em6464.mergemail.co designates 149.72.37.194 as permitted sender) smtp.mailfrom="bounces+20074681-817f-benjamin.mary=unipd.it@em6464.mergemail.co"
+Return-Path: <bounces+20074681-817f-benjamin.mary=unipd.it@em6464.mergemail.co>
+Received: from wrqvnrcn.outbound-mail.sendgrid.net (wrqvnrcn.outbound-mail.sendgrid.net. [149.72.37.194])
+        by mx.google.com with ESMTPS id o13-20020ac85a4d000000b003b9bcfd81d3si7369401qta.530.2023.03.06.07.02.36
+        for <benjamin.mary@unipd.it>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Mar 2023 07:02:36 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+20074681-817f-benjamin.mary=unipd.it@em6464.mergemail.co designates 149.72.37.194 as permitted sender) client-ip=149.72.37.194;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mergemail.co header.s=s1 header.b=MtAH3kxk;
+       spf=pass (google.com: domain of bounces+20074681-817f-benjamin.mary=unipd.it@em6464.mergemail.co designates 149.72.37.194 as permitted sender) smtp.mailfrom="bounces+20074681-817f-benjamin.mary=unipd.it@em6464.mergemail.co"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mergemail.co;
+	h=from:subject:mime-version:to:content-type:content-transfer-encoding:
+	cc:content-type:from:subject:to;
+	s=s1; bh=xISL8HCyByf2mryZo9Nm5VtG7MT1hlDQdcHFU+CMi4M=;
+	b=MtAH3kxk9qAsntsGjyGsL/pSZCgSK1CToLCPwYttzqwKjy4lgwAHfCdeJO1cFplsEJjL
+	IpJ8mD53OcUHgAe9v5u+FcKukq63VlSL/r4IpibAURxuKm6yIgcy73icazFDhYSGCgsIOo
+	+XjYsFhktkd49/XpEBBMgUqeqzOuyY6XQ2PLYe7M+Ko87mxkOT1goAOIoU3q2DOQZBRX/a
+	B7B/qd9qM3kN3RntpD+cM73boBp+uSncM+dN/USgBxw1ssAMFvSMbJH2lOI7EyOOThiKpG
+	hO5kFmSJL6oVXKX3X/4laHIDOnTeqfBktdMmh3lAc6aGVir2jyrMQU3IncPEzWHg==
+Received: by filterdrecv-68f8d557c9-xjc6x with SMTP id filterdrecv-68f8d557c9-xjc6x-1-6406008B-E0
+        2023-03-06 15:02:35.781668048 +0000 UTC m=+1092569.714771477
+Received: from mergemail.co (unknown)
+	by geopod-ismtpd-29 (SG) with ESMTP
+	id K4pbKo8YTRuD2PYwaAC8zw
+	for <benjamin.mary@unipd.it>;
+	Mon, 06 Mar 2023 15:02:35.748 +0000 (UTC)
+Date: Mon, 06 Mar 2023 15:02:36 +0000 (UTC)
+From: MergeMail <support@mergemail.co>
+Message-ID: <6406008bb57b4_21a77068384a@bbbc5373-5322-43a2-a3cb-f33bee7880e3.mail>
+Subject: [MergeMail] Campaign Sent: CATHY days - March update
+Mime-Version: 1.0
+X-SG-EID: 
+ =?us-ascii?Q?W6Ktt0Da+sro4+H1=2Fc+OiCr=2FgHkoKj8E9v8jxE=2FT4qB=2F231azJ3EXHXGhQXAis?=
+ =?us-ascii?Q?LGL8Ww22O462QRsSacEsFChggpIt3JBtyesJzY7?=
+ =?us-ascii?Q?FqTWdj3q6T11UonowQUw42aMih+j3DcSw0uyO7A?=
+ =?us-ascii?Q?md1ZBBFz+APvwDsG1wWqivQAJihjkvpGPzNUTJp?=
+ =?us-ascii?Q?NKQl+OlKz267sGA2BF7lFCt5EBuMAR1fl0UlQvV?=
+ =?us-ascii?Q?BpM3i+e94O+X=2F3BFiepd5IsRk7kNFB7gPveCOH?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8+WJS8HtJtzCprCzyMY9AioPr=2FvwBsLaq8Q=2FEqy=2Fl?=
+ =?us-ascii?Q?JBLSjhUSCR+lFbf3DfEi+M9g=3D=3D?=
+To: benjamin.mary@unipd.it
+X-Entity-ID: A/rlPcvdJ/YwnXXW1cybzg==
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6406008b83c4e_21a7706833ea";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_6406008b83c4e_21a7706833ea
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Congratulations! Your campaign has been=0D
+sent!=0D
+=0D
+MergeMail ( https://u20074681.ct.sendgrid.net/ls/click?upn=3D5tmATvmMu14as3=
+mZUHytEPmbfQD4EeQC039WTxZNPIvQO23Y0NT5cvlW-2BRcbV4VkKtGi_0pg8-2FkkoUjr3xH-2=
+B4BEW7wk3L-2B5dLWnqZCBYAO7ud-2FEkrI9mHgiPRZzVTkKxVKhGkW7TlIwCBDZperOh2C5qUQ=
+RztOxeWwJ9SgcXe-2FvqVoFlrXv9GqKtDLzi-2BT2xABPoCANXsSNdJUKJsaOBce-2FDO36hT-2=
+F3ALortLkkvuWiuP020rfntYBwa9yvJn5FWzkeiAyq5-2FNbQvxq-2BM3wJ-2Fp1BNhU9i-2FHe=
+LUmjdwq25Ss-2FKmdW-2FcZyVVnlf06WCTjDD9Qbr )=0D
+=0D
+Campaign Sent! =F0=9F=8E=89 ( https://u20074681.ct.sendgrid.net/ls/click?up=
+n=3D5tmATvmMu14as3mZUHytEPmbfQD4EeQC039WTxZNPIsMVZ6AFxyC4NXE4gsVcCPrYgyCOtD=
+kC9-2B4mr3da7CT-2Bw-3D-3D99FE_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO7u=
+d-2FEkrI9mHgiPRZzVTkKxVKhGkCungs-2FpRGNHm0A251U4RTSRQT5NVH9fiOwUc6eA5SdL-2F=
+zddfxUMX5VH3VS5aPsHh9-2FkUlFXZe61EzAVnEWRxv4l9rA55JJGjiOd5FB-2BUqi8OpSv6kOw=
+9wEC-2BlMQ2shOD3f5W-2BbU3Xq5AGNdZ4lJ9bT7uskF3CF4O57JMPGifsImF-2Bj-2B7H14mXg=
+4bIMJ4wrK-2F )=0D
+--------------------------------------------------------------=0D
+=0D
+Congratulations! Your campaign has been sent with MergeMail.=0D
+=0D
+Campaign:=0D
+CATHY days - March update=20=0D
+( https://u20074681.ct.sendgrid.net/ls/click?upn=3D5tmATvmMu14as3mZUHytEPmb=
+fQD4EeQC039WTxZNPIsMVZ6AFxyC4NXE4gsVcCPrYgyCOtDkC9-2B4mr3da7CT-2Bw-3D-3DoSc=
+v_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO7ud-2FEkrI9mHgiPRZzVTkKxVKhGku=
+HcJDajHa7GYHzEFlWOFuUX2JncGuAXIdlWZtRvlgf5TQOMLy6FITahLlgshZpDuJV5weA-2B-2F=
+0zyCltSz9KFw8fKdwpe5Cfqepa0p-2FBKFwMYZIjF2Qj6LroJgwD3-2BfPbRbULJHiRXFjCwdng=
+NfXrGB6rAnvk3y77sqfDAPfCrZJBVakqxOD1h4sJPoaGa9wBr )=0D
+=0D
+40 recipients=0D
+=0D
+Want to see more information about your campaign?=0D
+=0D
+View Campaign ( https://u20074681.ct.sendgrid.net/ls/click?upn=3D5tmATvmMu1=
+4as3mZUHytEPmbfQD4EeQC039WTxZNPIsMVZ6AFxyC4NXE4gsVcCPrYgyCOtDkC9-2B4mr3da7C=
+T-2Bw-3D-3Dm9lf_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO7ud-2FEkrI9mHgiP=
+RZzVTkKxVKhGkwFMF4ED59Wrhm1Bydb09zrpVrJkM7S4ov90G4JSSEsdFKy-2BjvGdDVXlLHuHX=
+wl6ITi1bwkIIvzFxwsC6WoTuMVZt6059a9BsxYzmqJoZgNfTMR05Fd28r8cnxGhJrEctUFQlkwR=
+ZuVYjgF1yCmlezYoJOAkKPg0HCw8yyzuvK-2Fdfxgc4GNzST8Xw4UemoC4H )=20=0D
+=0D
+It looks like you haven't set up open or click tracking on this=0D
+campaign, but you can set those up on future campaigns to see how=0D
+recipients interact with your emails.=0D
+=0D
+How To Use Email Tracking=20=0D
+( https://u20074681.ct.sendgrid.net/ls/click?upn=3D5tmATvmMu14as3mZUHytEOX9=
+LRjC13Uv5FBSmzqCUmfb2BixyDp3lBh8c4Irc5h-2BjhwiLl4ladSHP-2FYkjXnYwT7FCJcaxz4=
+xg-2B7iimn052A-3DyjIM_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO7ud-2FEkrI=
+9mHgiPRZzVTkKxVKhGkFzU5cFzb1DRNOE-2Fct7FLq2BX1VSTlWEJg-2FD26T-2FhyVXbrW22Ty=
+WaEyZkeh0M-2BOf3kYgYRYsIGot64egkHcq51HgRn0JiwLQWO6Q8aHdo5t-2B1sosTrkKGwUWsQ=
+J7IHsflNCjAVzhYe8N0FlEtTn5EAQDV-2FbF5lK6uVgxwH0N2YxYSVCvl5u5ULjB8BBE6L0yD )=0D
+=0D
+MergeMail ( https://u20074681.ct.sendgrid.net/ls/click?upn=3D5tmATvmMu14as3=
+mZUHytEPmbfQD4EeQC039WTxZNPIvQO23Y0NT5cvlW-2BRcbV4VkmLmk_0pg8-2FkkoUjr3xH-2=
+B4BEW7wk3L-2B5dLWnqZCBYAO7ud-2FEkrI9mHgiPRZzVTkKxVKhGkysum55KI5PBC7vae6EMMi=
+ZO1-2BD6D1eXlPTQ2MQ8IH4Z-2FHOUV8DbZh1OkJw5sJDGqgRp8XmOlMVjTpEQG2sL9hw5iQ3wq=
+3ivzWEV-2FvTl46Zr1EsDswrKANhDeCnguxnVleU3aVgpCJIaouO6I4quX8t0V5Z3THm1EwxK3d=
+tFDdebcddqxQrMnNYUEfCZvVTaw )=0D
+|=0D
+Manage your notification settings=20=0D
+( https://u20074681.ct.sendgrid.net/ls/click?upn=3D5tmATvmMu14as3mZUHytEPmb=
+fQD4EeQC039WTxZNPIvGw8yeWCoVqGJ9t1mNyN88jMXkVX7aHnsiI0zb4q04frqdqXXL1oQJQxQ=
+UltNnlwI-3DeK4J_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO7ud-2FEkrI9mHgiP=
+RZzVTkKxVKhGkO-2FNp-2B657PZPcn-2BNExt14QZcwFqVMgrzSA1o5-2Fa3LFPvkaW5Jp-2FUe=
+zEdzZO7fR6vt3eJ41SglPzp6BWMgUa7-2F6fti25wH8GQXsRheghXqNoKCAfwbMIkmaHhuue2Ai=
+qXh3rPhNRYoURp1bSSpGORM9fNppqHG4UrYRyKV5mh9jYhCRJg61QU5QJfxqB-2BBb-2BcZ )
+----==_mimepart_6406008b83c4e_21a7706833ea
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+<head>=0D
+<meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Type">=0D
+=0D
+        <style type=3D"text/css">=0D
+          .ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.Extern=
+alClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-=
+height:150%}a{text-decoration:none}@media screen and (max-width: 600px){tab=
+le.row th.col-lg-1,table.row th.col-lg-2,table.row th.col-lg-3,table.row th=
+.col-lg-4,table.row th.col-lg-5,table.row th.col-lg-6,table.row th.col-lg-7=
+,table.row th.col-lg-8,table.row th.col-lg-9,table.row th.col-lg-10,table.r=
+ow th.col-lg-11,table.row th.col-lg-12{display:block;width:100% !important}=
+.d-mobile{display:block !important}.d-desktop{display:none !important}.w-lg=
+-25{width:auto !important}.w-lg-25>tbody>tr>td{width:auto !important}.w-lg-=
+50{width:auto !important}.w-lg-50>tbody>tr>td{width:auto !important}.w-lg-7=
+5{width:auto !important}.w-lg-75>tbody>tr>td{width:auto !important}.w-lg-10=
+0{width:auto !important}.w-lg-100>tbody>tr>td{width:auto !important}.w-lg-a=
+uto{width:auto !important}.w-lg-auto>tbody>tr>td{width:auto !important}.w-2=
+5{width:25% !important}.w-25>tbody>tr>td{width:25% !important}.w-50{width:5=
+0% !important}.w-50>tbody>tr>td{width:50% !important}.w-75{width:75% !impor=
+tant}.w-75>tbody>tr>td{width:75% !important}.w-100{width:100% !important}.w=
+-100>tbody>tr>td{width:100% !important}.w-auto{width:auto !important}.w-aut=
+o>tbody>tr>td{width:auto !important}.p-lg-0>tbody>tr>td{padding:0 !importan=
+t}.pt-lg-0>tbody>tr>td,.py-lg-0>tbody>tr>td{padding-top:0 !important}.pr-lg=
+-0>tbody>tr>td,.px-lg-0>tbody>tr>td{padding-right:0 !important}.pb-lg-0>tbo=
+dy>tr>td,.py-lg-0>tbody>tr>td{padding-bottom:0 !important}.pl-lg-0>tbody>tr=
+>td,.px-lg-0>tbody>tr>td{padding-left:0 !important}.p-lg-1>tbody>tr>td{padd=
+ing:0 !important}.pt-lg-1>tbody>tr>td,.py-lg-1>tbody>tr>td{padding-top:0 !i=
+mportant}.pr-lg-1>tbody>tr>td,.px-lg-1>tbody>tr>td{padding-right:0 !importa=
+nt}.pb-lg-1>tbody>tr>td,.py-lg-1>tbody>tr>td{padding-bottom:0 !important}.p=
+l-lg-1>tbody>tr>td,.px-lg-1>tbody>tr>td{padding-left:0 !important}.p-lg-2>t=
+body>tr>td{padding:0 !important}.pt-lg-2>tbody>tr>td,.py-lg-2>tbody>tr>td{p=
+adding-top:0 !important}.pr-lg-2>tbody>tr>td,.px-lg-2>tbody>tr>td{padding-r=
+ight:0 !important}.pb-lg-2>tbody>tr>td,.py-lg-2>tbody>tr>td{padding-bottom:=
+0 !important}.pl-lg-2>tbody>tr>td,.px-lg-2>tbody>tr>td{padding-left:0 !impo=
+rtant}.p-lg-3>tbody>tr>td{padding:0 !important}.pt-lg-3>tbody>tr>td,.py-lg-=
+3>tbody>tr>td{padding-top:0 !important}.pr-lg-3>tbody>tr>td,.px-lg-3>tbody>=
+tr>td{padding-right:0 !important}.pb-lg-3>tbody>tr>td,.py-lg-3>tbody>tr>td{=
+padding-bottom:0 !important}.pl-lg-3>tbody>tr>td,.px-lg-3>tbody>tr>td{paddi=
+ng-left:0 !important}.p-lg-4>tbody>tr>td{padding:0 !important}.pt-lg-4>tbod=
+y>tr>td,.py-lg-4>tbody>tr>td{padding-top:0 !important}.pr-lg-4>tbody>tr>td,=
+.px-lg-4>tbody>tr>td{padding-right:0 !important}.pb-lg-4>tbody>tr>td,.py-lg=
+-4>tbody>tr>td{padding-bottom:0 !important}.pl-lg-4>tbody>tr>td,.px-lg-4>tb=
+ody>tr>td{padding-left:0 !important}.p-lg-5>tbody>tr>td{padding:0 !importan=
+t}.pt-lg-5>tbody>tr>td,.py-lg-5>tbody>tr>td{padding-top:0 !important}.pr-lg=
+-5>tbody>tr>td,.px-lg-5>tbody>tr>td{padding-right:0 !important}.pb-lg-5>tbo=
+dy>tr>td,.py-lg-5>tbody>tr>td{padding-bottom:0 !important}.pl-lg-5>tbody>tr=
+>td,.px-lg-5>tbody>tr>td{padding-left:0 !important}.p-0>tbody>tr>td{padding=
+:0 !important}.pt-0>tbody>tr>td,.py-0>tbody>tr>td{padding-top:0 !important}=
+.pr-0>tbody>tr>td,.px-0>tbody>tr>td{padding-right:0 !important}.pb-0>tbody>=
+tr>td,.py-0>tbody>tr>td{padding-bottom:0 !important}.pl-0>tbody>tr>td,.px-0=
+>tbody>tr>td{padding-left:0 !important}.p-1>tbody>tr>td{padding:4px !import=
+ant}.pt-1>tbody>tr>td,.py-1>tbody>tr>td{padding-top:4px !important}.pr-1>tb=
+ody>tr>td,.px-1>tbody>tr>td{padding-right:4px !important}.pb-1>tbody>tr>td,=
+.py-1>tbody>tr>td{padding-bottom:4px !important}.pl-1>tbody>tr>td,.px-1>tbo=
+dy>tr>td{padding-left:4px !important}.p-2>tbody>tr>td{padding:8px !importan=
+t}.pt-2>tbody>tr>td,.py-2>tbody>tr>td{padding-top:8px !important}.pr-2>tbod=
+y>tr>td,.px-2>tbody>tr>td{padding-right:8px !important}.pb-2>tbody>tr>td,.p=
+y-2>tbody>tr>td{padding-bottom:8px !important}.pl-2>tbody>tr>td,.px-2>tbody=
+>tr>td{padding-left:8px !important}.p-3>tbody>tr>td{padding:16px !important=
+}.pt-3>tbody>tr>td,.py-3>tbody>tr>td{padding-top:16px !important}.pr-3>tbod=
+y>tr>td,.px-3>tbody>tr>td{padding-right:16px !important}.pb-3>tbody>tr>td,.=
+py-3>tbody>tr>td{padding-bottom:16px !important}.pl-3>tbody>tr>td,.px-3>tbo=
+dy>tr>td{padding-left:16px !important}.p-4>tbody>tr>td{padding:24px !import=
+ant}.pt-4>tbody>tr>td,.py-4>tbody>tr>td{padding-top:24px !important}.pr-4>t=
+body>tr>td,.px-4>tbody>tr>td{padding-right:24px !important}.pb-4>tbody>tr>t=
+d,.py-4>tbody>tr>td{padding-bottom:24px !important}.pl-4>tbody>tr>td,.px-4>=
+tbody>tr>td{padding-left:24px !important}.p-5>tbody>tr>td{padding:48px !imp=
+ortant}.pt-5>tbody>tr>td,.py-5>tbody>tr>td{padding-top:48px !important}.pr-=
+5>tbody>tr>td,.px-5>tbody>tr>td{padding-right:48px !important}.pb-5>tbody>t=
+r>td,.py-5>tbody>tr>td{padding-bottom:48px !important}.pl-5>tbody>tr>td,.px=
+-5>tbody>tr>td{padding-left:48px !important}.s-lg-1>tbody>tr>td,.s-lg-2>tbo=
+dy>tr>td,.s-lg-3>tbody>tr>td,.s-lg-4>tbody>tr>td,.s-lg-5>tbody>tr>td{font-s=
+ize:0 !important;line-height:0 !important;height:0 !important}.s-0>tbody>tr=
+>td{font-size:0 !important;line-height:0 !important;height:0 !important}.s-=
+1>tbody>tr>td{font-size:4px !important;line-height:4px !important;height:4p=
+x !important}.s-2>tbody>tr>td{font-size:8px !important;line-height:8px !imp=
+ortant;height:8px !important}.s-3>tbody>tr>td{font-size:16px !important;lin=
+e-height:16px !important;height:16px !important}.s-4>tbody>tr>td{font-size:=
+24px !important;line-height:24px !important;height:24px !important}.s-5>tbo=
+dy>tr>td{font-size:48px !important;line-height:48px !important;height:48px =
+!important}}@media yahoo{.d-mobile{display:none !important}.d-desktop{displ=
+ay:block !important}.w-lg-25{width:25% !important}.w-lg-25>tbody>tr>td{widt=
+h:25% !important}.w-lg-50{width:50% !important}.w-lg-50>tbody>tr>td{width:5=
+0% !important}.w-lg-75{width:75% !important}.w-lg-75>tbody>tr>td{width:75% =
+!important}.w-lg-100{width:100% !important}.w-lg-100>tbody>tr>td{width:100%=
+ !important}.w-lg-auto{width:auto !important}.w-lg-auto>tbody>tr>td{width:a=
+uto !important}.p-lg-0>tbody>tr>td{padding:0 !important}.pt-lg-0>tbody>tr>t=
+d,.py-lg-0>tbody>tr>td{padding-top:0 !important}.pr-lg-0>tbody>tr>td,.px-lg=
+-0>tbody>tr>td{padding-right:0 !important}.pb-lg-0>tbody>tr>td,.py-lg-0>tbo=
+dy>tr>td{padding-bottom:0 !important}.pl-lg-0>tbody>tr>td,.px-lg-0>tbody>tr=
+>td{padding-left:0 !important}.p-lg-1>tbody>tr>td{padding:4px !important}.p=
+t-lg-1>tbody>tr>td,.py-lg-1>tbody>tr>td{padding-top:4px !important}.pr-lg-1=
+>tbody>tr>td,.px-lg-1>tbody>tr>td{padding-right:4px !important}.pb-lg-1>tbo=
+dy>tr>td,.py-lg-1>tbody>tr>td{padding-bottom:4px !important}.pl-lg-1>tbody>=
+tr>td,.px-lg-1>tbody>tr>td{padding-left:4px !important}.p-lg-2>tbody>tr>td{=
+padding:8px !important}.pt-lg-2>tbody>tr>td,.py-lg-2>tbody>tr>td{padding-to=
+p:8px !important}.pr-lg-2>tbody>tr>td,.px-lg-2>tbody>tr>td{padding-right:8p=
+x !important}.pb-lg-2>tbody>tr>td,.py-lg-2>tbody>tr>td{padding-bottom:8px !=
+important}.pl-lg-2>tbody>tr>td,.px-lg-2>tbody>tr>td{padding-left:8px !impor=
+tant}.p-lg-3>tbody>tr>td{padding:16px !important}.pt-lg-3>tbody>tr>td,.py-l=
+g-3>tbody>tr>td{padding-top:16px !important}.pr-lg-3>tbody>tr>td,.px-lg-3>t=
+body>tr>td{padding-right:16px !important}.pb-lg-3>tbody>tr>td,.py-lg-3>tbod=
+y>tr>td{padding-bottom:16px !important}.pl-lg-3>tbody>tr>td,.px-lg-3>tbody>=
+tr>td{padding-left:16px !important}.p-lg-4>tbody>tr>td{padding:24px !import=
+ant}.pt-lg-4>tbody>tr>td,.py-lg-4>tbody>tr>td{padding-top:24px !important}.=
+pr-lg-4>tbody>tr>td,.px-lg-4>tbody>tr>td{padding-right:24px !important}.pb-=
+lg-4>tbody>tr>td,.py-lg-4>tbody>tr>td{padding-bottom:24px !important}.pl-lg=
+-4>tbody>tr>td,.px-lg-4>tbody>tr>td{padding-left:24px !important}.p-lg-5>tb=
+ody>tr>td{padding:48px !important}.pt-lg-5>tbody>tr>td,.py-lg-5>tbody>tr>td=
+{padding-top:48px !important}.pr-lg-5>tbody>tr>td,.px-lg-5>tbody>tr>td{padd=
+ing-right:48px !important}.pb-lg-5>tbody>tr>td,.py-lg-5>tbody>tr>td{padding=
+-bottom:48px !important}.pl-lg-5>tbody>tr>td,.px-lg-5>tbody>tr>td{padding-l=
+eft:48px !important}.s-lg-0>tbody>tr>td{font-size:0 !important;line-height:=
+0 !important;height:0 !important}.s-lg-1>tbody>tr>td{font-size:4px !importa=
+nt;line-height:4px !important;height:4px !important}.s-lg-2>tbody>tr>td{fon=
+t-size:8px !important;line-height:8px !important;height:8px !important}.s-l=
+g-3>tbody>tr>td{font-size:16px !important;line-height:16px !important;heigh=
+t:16px !important}.s-lg-4>tbody>tr>td{font-size:24px !important;line-height=
+:24px !important;height:24px !important}.s-lg-5>tbody>tr>td{font-size:48px =
+!important;line-height:48px !important;height:48px !important}}=0D
+=0D
+        </style>=0D
+</head>=0D
+<body style=3D"outline: 0; width: 100%; min-width: 100%; height: 100%; -web=
+kit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: system=
+-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, C=
+antarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; line-height: 2=
+4px; font-weight: normal; font-size: 16px; box-sizing: border-box; margin: =
+0; padding: 0; border: 0;">=0D
+<div class=3D"preview" style=3D"display: none; max-height: 0px; overflow: h=
+idden;">=0D
+  Congratulations! Your campaign has been sent!=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=0D
+</div>=0D
+<table valign=3D"top" class=3D"bg-light body" style=3D"outline: 0; width: 1=
+00%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-tex=
+t-size-adjust: 100%; font-family: system-ui, BlinkMacSystemFont, -apple-sys=
+tem, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, He=
+lvetica Neue, sans-serif; line-height: 24px; font-weight: normal; font-size=
+: 16px; box-sizing: border-box; mso-table-lspace: 0pt; mso-table-rspace: 0p=
+t; border-spacing: 0px; border-collapse: collapse; margin: 0; padding: 0; b=
+order: 0;" bgcolor=3D"#f8f9fa">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td valign=3D"top" style=3D"border-spacing: 0px; border-collapse: col=
+lapse; line-height: 24px; font-size: 16px; margin: 0;" align=3D"left" bgcol=
+or=3D"#f8f9fa">=0D
+       =20=0D
+=0D
+<table class=3D"container" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe =
+UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neu=
+e, sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-spacing=
+: 0px; border-collapse: collapse; width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td align=3D"center" style=3D"border-spacing: 0px; border-collapse: c=
+ollapse; line-height: 24px; font-size: 16px; margin: 0; padding: 0 16px;">=0D
+        <!--[if (gte mso 9)|(IE)]>=0D
+          <table align=3D"center">=0D
+            <tbody>=0D
+              <tr>=0D
+                <td width=3D"600">=0D
+        <![endif]-->=0D
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"font-family: system-ui, BlinkMacSystemFont, -apple-system, =
+Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helveti=
+ca Neue, sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-s=
+pacing: 0px; border-collapse: collapse; width: 100%; max-width: 600px; marg=
+in: 0 auto;">=0D
+          <tbody>=0D
+            <tr>=0D
+              <td style=3D"border-spacing: 0px; border-collapse: collapse; =
+line-height: 24px; font-size: 16px; margin: 0;" align=3D"left">=0D
+               =20=0D
+<table class=3D"s-3 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"16" style=3D"border-spacing: 0px; border-collapse: coll=
+apse; line-height: 16px; font-size: 16px; width: 100%; height: 16px; margin=
+: 0;" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+<div class=3D" ">=0D
+<h4 class=3D"text-center" style=3D"margin-bottom: 10px; margin-top: 0; font=
+-weight: 500; color: inherit; vertical-align: baseline; font-size: 24px; li=
+ne-height: 28.8px;" align=3D"center">=0D
+<a class=3D"link-unstyled" href=3D"https://u20074681.ct.sendgrid.net/ls/cli=
+ck?upn=3D5tmATvmMu14as3mZUHytEPmbfQD4EeQC039WTxZNPIvWVfE8wAwe-2FnIaLQFwyiD3=
+081ja8Poh5bVmy9eT88DD9CUx-2F-2FSgWdp-2B9PKROsImSMziHHPYv4qbL6ME30xzPu3MTmFT=
+B3TXXUQjGq8MtRAvD3DW5f88YL-2FgsoTzWxuhIIkzh2txrPm-2B7-2B7-2F87JPjVfLuK3C84w=
+TQeUmmJUZarNIlczlfH9m9bwSCxJlMi1Mlo-3D79W-_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5=
+dLWnqZCBYAO7ud-2FEkrI9mHgiPRZzVTkKxVKhGkwlfck9Vqz7OoAoEOQRKvCAdGzfDoCBj-2Bc=
+sVeS8O9hVqn-2BB2cbtleX-2BhYKS06zFEn5VGuOj-2FImzS90h6N0UKBdZfQ4UFZ4HOZnSJziV=
+6zTxtByZGOBydZFeKEMAaU0jGkjwJkUOwsCQdBmemp8j9rAtOJAyBgh1vbiZkLdCAf8OPPhbaNm=
+QEnOkV38FyzZGIx" style=3D"color: #333;"><img style=3D"width: 24px; margin-b=
+ottom: -3px; margin-right: 3px; height: auto; line-height: 100%; outline: n=
+one; text-decoration: none; border: 0 none;" src=3D"https://www.mergemail.c=
+o/assets/icon-40af5663ca56322f6248423f053609ea253e8255931ba84ac9501a828b972=
+c69.png">=0D
+MergeMail=0D
+</a>=0D
+</h4>=0D
+</div>=0D
+<table class=3D"s-2 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"8" style=3D"border-spacing: 0px; border-collapse: colla=
+pse; line-height: 8px; font-size: 8px; width: 100%; height: 8px; margin: 0;=
+" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+<h3 class=3D" text-center" style=3D"margin-bottom: 10px; margin-top: 0; fon=
+t-weight: 500; color: inherit; vertical-align: baseline; font-size: 28px; l=
+ine-height: 33.6px;" align=3D"center">=0D
+<a class=3D"link-unstyled" href=3D"https://u20074681.ct.sendgrid.net/ls/cli=
+ck?upn=3D5tmATvmMu14as3mZUHytEPmbfQD4EeQC039WTxZNPIvWVfE8wAwe-2FnIaLQFwyiD3=
+081ja8Poh5bVmy9eT88DD9CUx-2F-2FSgWdp-2B9PKROsImSMziHHPYv4qbL6ME30xzPu3zOOTO=
+isLib96bUws-2BC0t4Rtbi4rabZB4lT3qc-2F5crBCtTp959K6KZaRbBuGRtEW7IemEr1JqlWyu=
+L6977TlSwJzRYFrb3BixGjTEWxg-2FnKNUfbqmTUf9aVe1ZRz5YbLBH4038u1shZpEAeDpoAKqP=
+w-3D-3D5CgT_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO7ud-2FEkrI9mHgiPRZzV=
+TkKxVKhGkbOIEcKHKEewe3ecESv3u4-2B4LoFFkmaHhnPdnVgABUuaoWKsd8FTgpfFrk6-2FnZ3=
+OaK9W-2BOrmP5LCQJlGH0nX8lthbwWaTJljeA1JOMh9C9ES-2BWu7RM-2FaRZFJWCnGD4hz0Kf6=
+R1DUuG-2FKaku1dnG8NMovJ2DjZJuBImZ-2Bh-2FZFj6umjN8Wyx56SMtTVHi-2Bs0t75" styl=
+e=3D"color: #333;">Campaign Sent! =F0=9F=8E=89</a>=0D
+</h3>=0D
+<table class=3D"s-2 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"8" style=3D"border-spacing: 0px; border-collapse: colla=
+pse; line-height: 8px; font-size: 8px; width: 100%; height: 8px; margin: 0;=
+" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+<table class=3D"card " border=3D"0" cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, =
+Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, s=
+ans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-spacing: 0p=
+x; border-collapse: separate !important; border-radius: 4px; width: 100%; o=
+verflow: hidden; border: 1px solid #dee2e6;" bgcolor=3D"#ffffff">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td style=3D"border-spacing: 0px; border-collapse: collapse; line-hei=
+ght: 24px; font-size: 16px; width: 100%; margin: 0;" align=3D"left">=0D
+        <div>=0D
+<table class=3D"card-body" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe =
+UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neu=
+e, sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-spacing=
+: 0px; border-collapse: collapse; width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td style=3D"border-spacing: 0px; border-collapse: collapse; line-hei=
+ght: 24px; font-size: 16px; width: 100%; margin: 0; padding: 20px;" align=
+=3D"left">=0D
+        <div>=0D
+<table class=3D"alert alert-success " border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"font-family: system-ui, BlinkMacSystemFont, -apple-sys=
+tem, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, He=
+lvetica Neue, sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; bor=
+der-spacing: 0px; border-collapse: separate !important; width: 100%; border=
+: 0;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td style=3D"border-spacing: 0px; border-collapse: collapse; line-hei=
+ght: 24px; font-size: 16px; border-radius: 4px; color: #0a2c12; margin: 0; =
+padding: 12px 20px; border: 1px solid transparent;" align=3D"left" bgcolor=
+=3D"#afecbd">=0D
+        <p style=3D"line-height: 24px; font-size: 16px; margin: 0;" align=
+=3D"left">=0D
+Congratulations! Your campaign has been sent with MergeMail.=0D
+</p>=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+<table class=3D"s-4 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"24" style=3D"border-spacing: 0px; border-collapse: coll=
+apse; line-height: 24px; font-size: 24px; width: 100%; height: 24px; margin=
+: 0;" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+=0D
+<h4 class=3D"" style=3D"margin-bottom: 10px; margin-top: 0; font-weight: 50=
+0; color: inherit; vertical-align: baseline; font-size: 24px; line-height: =
+28.8px;" align=3D"left">=0D
+Campaign:=0D
+<a href=3D"https://u20074681.ct.sendgrid.net/ls/click?upn=3D5tmATvmMu14as3m=
+ZUHytEPmbfQD4EeQC039WTxZNPIvWVfE8wAwe-2FnIaLQFwyiD3081ja8Poh5bVmy9eT88DD9CU=
+x-2F-2FSgWdp-2B9PKROsImSMziHHPYv4qbL6ME30xzPu3zOOTOisLib96bUws-2BC0t4Rtbi4r=
+abZB4lT3qc-2F5crBCtTp959K6KZaRbBuGRtEW7IemEr1JqlWyuL6977TlSwJzRYFrb3BixGjTE=
+Wxg-2FnKNUfbqmTUf9aVe1ZRz5YbLBH4038u1shZpEAeDpoAKqPw-3D-3DFfJh_0pg8-2FkkoUj=
+r3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO7ud-2FEkrI9mHgiPRZzVTkKxVKhGk21xfXFtu0w4KbOi=
+bG-2BpE3E9uplUsO1BuBdIYMiF-2BZk8LBIWJojRJm8UEjuN-2BMqQSpvNnepfTUGtz2mWcjEAc=
+upm04gPk2RMiS5YTlLMu8cw5QQmBm8VKiw0jVa0UlxtAZZ-2BNbLx9qo-2FemFkAF1S14r19kV4=
+W6oIQYe-2BZuIWxXz9Q0zoKYzr5GqaZvs2wX0Hy">CATHY days - March update</a>=0D
+</h4>=0D
+<table class=3D"s-0 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"0" style=3D"border-spacing: 0px; border-collapse: colla=
+pse; line-height: 0; font-size: 0; width: 100%; height: 0; margin: 0;" alig=
+n=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+<p style=3D"line-height: 24px; font-size: 16px; margin: 0;" align=3D"left">=0D
+40 recipients=0D
+</p>=0D
+<div class=3D"hr " style=3D"width: 100%; margin: 20px 0; border: 0;">=0D
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-fam=
+ily: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen=
+, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt; border-spacing: 0px; border-coll=
+apse: collapse; width: 100%;">=0D
+    <tbody>=0D
+      <tr>=0D
+        <td style=3D"border-spacing: 0px; border-collapse: collapse; line-h=
+eight: 24px; font-size: 16px; border-top-width: 1px; border-top-color: #ddd=
+ddd; border-top-style: solid; height: 1px; width: 100%; margin: 0;" align=
+=3D"left"></td>=0D
+      </tr>=0D
+    </tbody>=0D
+  </table>=0D
+</div>=0D
+=0D
+<p class=3D"" style=3D"line-height: 24px; font-size: 16px; margin: 0;" alig=
+n=3D"left">=0D
+Want to see more information about your campaign?=0D
+</p>=0D
+<table class=3D"s-2 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"8" style=3D"border-spacing: 0px; border-collapse: colla=
+pse; line-height: 8px; font-size: 8px; width: 100%; height: 8px; margin: 0;=
+" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+<p class=3D"" style=3D"line-height: 24px; font-size: 16px; margin: 0;" alig=
+n=3D"left">=0D
+</p>=0D
+<table class=3D"s-2 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"8" style=3D"border-spacing: 0px; border-collapse: colla=
+pse; line-height: 8px; font-size: 8px; width: 100%; height: 8px; margin: 0;=
+" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+<table class=3D"btn btn-primary" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"font-family: system-ui, BlinkMacSystemFont, -apple-system, =
+Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helveti=
+ca Neue, sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-s=
+pacing: 0px; border-collapse: separate !important; border-radius: 4px;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td style=3D"border-spacing: 0px; border-collapse: collapse; line-hei=
+ght: 24px; font-size: 16px; border-radius: 4px; margin: 0;" align=3D"center=
+" bgcolor=3D"#007bff">=0D
+        <a href=3D"https://u20074681.ct.sendgrid.net/ls/click?upn=3D5tmATvm=
+Mu14as3mZUHytEPmbfQD4EeQC039WTxZNPIvWVfE8wAwe-2FnIaLQFwyiD3081ja8Poh5bVmy9e=
+T88DD9CUx-2F-2FSgWdp-2B9PKROsImSMziHHPYv4qbL6ME30xzPu3zOOTOisLib96bUws-2BC0=
+t4Rtbi4rabZB4lT3qc-2F5crBCtTp959K6KZaRbBuGRtEW7IemEr1JqlWyuL6977TlSwJzRYFrb=
+3BixGjTEWxg-2FnKNUfbqmTUf9aVe1ZRz5YbLBH4038u1shZpEAeDpoAKqPw-3D-3DdE_J_0pg8=
+-2FkkoUjr3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO7ud-2FEkrI9mHgiPRZzVTkKxVKhGkmI6MFkC=
+cSbOHxPpANAI0JPFlsuDKJ4jz9z0QO4lDyBBsUYu6qZBycESKrRRNyaQQtAIdXNgnv4QmdwUP9C=
+flD4g7Xx-2FqHt86AvERR76aaPz13U7qwKSYMZPjkhZBdW76V8ySJtnREXdeLok0X4o5BFm-2Bl=
+QWigrOwBmFDwj8l2OUIwoP39MeC90-2B4jk7kZsFY" style=3D"font-size: 16px; font-f=
+amily: Helvetica, Arial, sans-serif; text-decoration: none; border-radius: =
+4px; line-height: 20px; display: inline-block; font-weight: normal; white-s=
+pace: nowrap; background-color: #007bff; color: #ffffff; padding: 8px 12px;=
+ border: 1px solid #007bff;">View Campaign</a>=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+<div class=3D""></div>=0D
+<table class=3D"s-2 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"8" style=3D"border-spacing: 0px; border-collapse: colla=
+pse; line-height: 8px; font-size: 8px; width: 100%; height: 8px; margin: 0;=
+" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+<div class=3D"hr " style=3D"width: 100%; margin: 20px 0; border: 0;">=0D
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-fam=
+ily: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen=
+, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt; border-spacing: 0px; border-coll=
+apse: collapse; width: 100%;">=0D
+    <tbody>=0D
+      <tr>=0D
+        <td style=3D"border-spacing: 0px; border-collapse: collapse; line-h=
+eight: 24px; font-size: 16px; border-top-width: 1px; border-top-color: #ddd=
+ddd; border-top-style: solid; height: 1px; width: 100%; margin: 0;" align=
+=3D"left"></td>=0D
+      </tr>=0D
+    </tbody>=0D
+  </table>=0D
+</div>=0D
+=0D
+<p class=3D"" style=3D"line-height: 24px; font-size: 16px; margin: 0;" alig=
+n=3D"left">=0D
+It looks like you haven't set up open or click tracking on this campaign, b=
+ut you can set those up on future campaigns to see how recipients interact =
+with your emails.=0D
+</p>=0D
+<table class=3D"s-2 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"8" style=3D"border-spacing: 0px; border-collapse: colla=
+pse; line-height: 8px; font-size: 8px; width: 100%; height: 8px; margin: 0;=
+" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+<p class=3D"" style=3D"line-height: 24px; font-size: 16px; margin: 0;" alig=
+n=3D"left">=0D
+</p>=0D
+<table class=3D"s-2 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"8" style=3D"border-spacing: 0px; border-collapse: colla=
+pse; line-height: 8px; font-size: 8px; width: 100%; height: 8px; margin: 0;=
+" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+<table class=3D"btn btn-primary" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"font-family: system-ui, BlinkMacSystemFont, -apple-system, =
+Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helveti=
+ca Neue, sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-s=
+pacing: 0px; border-collapse: separate !important; border-radius: 4px;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td style=3D"border-spacing: 0px; border-collapse: collapse; line-hei=
+ght: 24px; font-size: 16px; border-radius: 4px; margin: 0;" align=3D"center=
+" bgcolor=3D"#007bff">=0D
+        <a target=3D"_blank" href=3D"https://u20074681.ct.sendgrid.net/ls/c=
+lick?upn=3D5tmATvmMu14as3mZUHytEPmbfQD4EeQC039WTxZNPIvWVfE8wAwe-2FnIaLQFwyi=
+D3081ja8Poh5bVmy9eT88DD9CUx-2F-2FSgWdp-2B9PKROsImSMziHHPYv4qbL6ME30xzPu3IyL=
+VL4Ky4j7KWYBWCc9IvVRrwsCFh3abxtEwZ7eRQZh3tIjSZvjhHFEhHvCyiy1-2F7N4beLpJyRqx=
+hekKd6qUDZHsnuCwfKkd3yMHYUwB4YWNO5FRYMBsbNtmPlB0j-2Ffhhfsxmror1AxYUjCNzWxOt=
+gOK-2BgOcoEyIkhBzTLJC8cU-3DGU0q_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO=
+7ud-2FEkrI9mHgiPRZzVTkKxVKhGkmI6MFkCcSbOHxPpANAI0JF9EYJSQXtni9xciFfXlkmuImQ=
+7XuoT-2Bp10rtJuINaOQZLuW59brj6Z9pmrBz1zNhPWLbWEN9HjO7cIWXQuYqF1Gk2exTBUkSmM=
+S8uXcIvR2lx-2B3-2BqYtLgk2X3WHUDfOkhkFZioj-2BXnkpbYdn5dxEVx-2F6SMHDnKYNMjujY=
+lp846z" style=3D"font-size: 16px; font-family: Helvetica, Arial, sans-serif=
+; text-decoration: none; border-radius: 4px; line-height: 20px; display: in=
+line-block; font-weight: normal; white-space: nowrap; background-color: #00=
+7bff; color: #ffffff; padding: 8px 12px; border: 1px solid #007bff;">How To=
+ Use Email Tracking</a>=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+</div>=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+</div>=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+<table class=3D"s-4 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"24" style=3D"border-spacing: 0px; border-collapse: coll=
+apse; line-height: 24px; font-size: 24px; width: 100%; height: 24px; margin=
+: 0;" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+=0D
+=0D
+<table class=3D"s-4 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"24" style=3D"border-spacing: 0px; border-collapse: coll=
+apse; line-height: 24px; font-size: 24px; width: 100%; height: 24px; margin=
+: 0;" align=3D"left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+<div class=3D"hr 0" style=3D"width: 100%; margin: 20px 0; border: 0;">=0D
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-fam=
+ily: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen=
+, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt; border-spacing: 0px; border-coll=
+apse: collapse; width: 100%;">=0D
+    <tbody>=0D
+      <tr>=0D
+        <td style=3D"border-spacing: 0px; border-collapse: collapse; line-h=
+eight: 24px; font-size: 16px; border-top-width: 1px; border-top-color: #ddd=
+ddd; border-top-style: solid; height: 1px; width: 100%; margin: 0;" align=
+=3D"left"></td>=0D
+      </tr>=0D
+    </tbody>=0D
+  </table>=0D
+</div>=0D
+=0D
+<div class=3D"0">=0D
+<small>=0D
+<a class=3D"link-unstyled" href=3D"https://u20074681.ct.sendgrid.net/ls/cli=
+ck?upn=3D5tmATvmMu14as3mZUHytEPmbfQD4EeQC039WTxZNPIvWVfE8wAwe-2FnIaLQFwyiD3=
+081ja8Poh5bVmy9eT88DD9CUx-2F-2FSgWdp-2B9PKROsImSMziHHPYv4qbL6ME30xzPu3MTmFT=
+B3TXXUQjGq8MtRAvD3DW5f88YL-2FgsoTzWxuhIIkzh2txrPm-2B7-2B7-2F87JPjVfLuK3C84w=
+TQeUmmJUZarNIlczlfH9m9bwSCxJlMi1Mlo-3DrJPX_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5=
+dLWnqZCBYAO7ud-2FEkrI9mHgiPRZzVTkKxVKhGkmI6MFkCcSbOHxPpANAI0JD37oNHxj70JojQ=
+qOXzI3zpgijLyc7ANaO97a-2BCdEKDP5icpI14LZgkE9qfsT-2B-2FqYwjBwTUiwzQXJIJD0USd=
+qVfmFkpH3CY1S4w5-2FRp1DP9vWNQiPNGU38UtAalztm8eBn7pJom9unexufoz8nvRpXufzzBa6=
+SbVbL8jm-2BJe1Ig2" style=3D"color: #333;">MergeMail</a>=0D
+|=0D
+<a class=3D"link-unstyled" href=3D"https://u20074681.ct.sendgrid.net/ls/cli=
+ck?upn=3D5tmATvmMu14as3mZUHytEPmbfQD4EeQC039WTxZNPIvWVfE8wAwe-2FnIaLQFwyiD3=
+081ja8Poh5bVmy9eT88DD9CUx-2F-2FSgWdp-2B9PKROsImSMziHHPYv4qbL6ME30xzPu3uuFXr=
+2F4zNO9QgYEfty06EbkQlmqV1s0HYjQClPShLBqEGz0erz-2FYKvef7cy0mfptJ1J5oTO59T8UE=
+CZhRa00vFmXsIsrXUICPlLHD8GLijBfDcH-2FR4fcrp-2BAAjzXxMVmSGYiiX5TjbHd-2BABTQW=
+MeI8mrPhbATtjtzp80B5cU3Y-3DbtIh_0pg8-2FkkoUjr3xH-2B4BEW7wk3L-2B5dLWnqZCBYAO=
+7ud-2FEkrI9mHgiPRZzVTkKxVKhGkmI6MFkCcSbOHxPpANAI0JNOrPKFvDKGsnkxOL-2Bi-2F1D=
+r9Zpl9YuISTBiuET1gO8QrXFBC6zo4ctF7mXtsZfItYbk6kfYGo57H9VlusAsLAcgrg3D2PxShl=
+73Q5YJgvH9ELMbEtGiPhoZcaezXS9hINxFvNpOdVxYFKUKQmJ7hkJHJwnTuwYXgP67BE5CAyFko=
+" style=3D"color: #333;">Manage your notification settings</a>=0D
+</small>=0D
+</div>=0D
+<table class=3D"s-6 w-100" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width: 100%;">=0D
+  <tbody>=0D
+    <tr>=0D
+      <td height=3D"0" style=3D"border-spacing: 0px; border-collapse: colla=
+pse; line-height: 24px; font-size: 16px; width: 100%; margin: 0;" align=3D"=
+left">=0D
+        =C2=A0=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+=0D
+              </td>=0D
+            </tr>=0D
+          </tbody>=0D
+        </table>=0D
+        <!--[if (gte mso 9)|(IE)]>=0D
+                </td>=0D
+              </tr>=0D
+            </tbody>=0D
+          </table>=0D
+        <![endif]-->=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+=0D
+=0D
+      </td>=0D
+    </tr>=0D
+  </tbody>=0D
+</table>=0D
+<img alt=3D"" src=3D"https://www.mergemail.co/ahoy/messages/V2O3zzTaUpd2siV=
+YA8GasR6dIYm86oiR/open.gif" width=3D"1" height=3D"1">=0D
+<img src=3D"https://u20074681.ct.sendgrid.net/wf/open?upn=3DGNnPkJalgkEpe7D=
+7Qaq3CjfkqUFESCuXYbkpxdBkrqNONbziq8jEj-2F7dLoIRoBiS1EG0SzWwx2-2B7VIDIwfKyd3=
+Pgp8DdjmuSW-2BOOps1wd5zj-2B0l29404Z2LNuTxfDPVBBTDt4UIFEvoZF4DC3nDWsyQDs64WB=
+pOupDLg-2FmYTArvziykjUuK248EAf9WTGkv9h8btq0k2rk64QYCMJwQAlb4wyKFrZoSIWtsuty=
+8M9x3vIbkj7aOqkY0G8IXrUISZhsUx5TB4CHkyJ3BH14bfXQ-3D-3D" alt=3D"" width=3D"1=
+" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !impor=
+tant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !imp=
+ortant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !im=
+portant;padding-bottom:0 !important;padding-right:0 !important;padding-left=
+:0 !important;"/></body>=0D
+</html>=0D
+
+----==_mimepart_6406008b83c4e_21a7706833ea--
