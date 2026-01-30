@@ -104,7 +104,7 @@ img {
 
 
 <div class="callout">
-The seminar is supported by <b><a href="https://uia.org/s/or/en/1100053284">Centro di Idrologia Dino Tonini</a></li>
+The seminar is supported by ??
 </ul>    
 </p>
 </div>
