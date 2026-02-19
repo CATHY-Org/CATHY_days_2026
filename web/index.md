@@ -1,5 +1,5 @@
 ---
-custom_page_title: "CATHY days 2023"
+custom_page_title: "CATHY days 2026"
 exclude_h1: true
 template: base.html
 ---
