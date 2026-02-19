@@ -60,7 +60,7 @@ There is <span style="color:red;">no registration fee</span> for the workshop; h
 
 </div>
 
-Want to join? [Registration are open]()!
+Want to join? [Registration are open](https://saco.csic.es/apps/forms/s/naAyMppTzXwKPdssZeDPfKrY)!
 
 
 <hr>
