@@ -46,9 +46,10 @@ The meeting will be focused on a number of talks that will address current progr
 
 ## Key dates
 
-
+<div class="callout callout-danger">
 * **Registration deadline** : **March 31st, 2026**
 * 📅 **Seminar days:** July 3rd, 2026
+</div>
 
 <hr>
 
