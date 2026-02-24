@@ -70,13 +70,14 @@ Want to join? [Registration are open](https://saco.csic.es/apps/forms/s/naAyMppT
 
 <div class="callout callout-success">
 
-The event will be held at the ?? in Modena (IT)
+The event will be held in Modena (IT) [location in the city centre, details will come]
 </div>
 
-
+<!--
 🚌 The easiest way to reach the workshop venue from ---
+-->
 
-Additional information can be found on the workshop [Venue link]()
+Additional information can be found on the workshop [Venue link to come]()
 
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64218.80988094948!2d10.88053281601105!3d44.650169744329766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fef12dd4964e1%3A0x96751e7d492b7f28!2sModena%2C%20Province%20of%20Modena%2C%20Italy!5e1!3m2!1sen!2ses!4v1769775727174!5m2!1sen!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -105,7 +106,7 @@ img {
 
 
 <div class="callout">
-The seminar is supported by ??
+The seminar is supported by the Università degli Studi di Modena e Reggio Emilia
 </ul>    
 </p>
 </div>
