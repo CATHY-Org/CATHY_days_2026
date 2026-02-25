@@ -57,7 +57,7 @@ The meeting will be focused on a number of talks that will address current progr
 
 <div class="callout callout-success">
 
-There is <span style="color:red;">no registration fee</span> for the workshop; however, the number of **in-person participants is limited to 40**, due to the maximum capacity of the venue. Therefore, respondents will be assigned a spot on a first-come-first-serve basis. Additional respondents will be provided with a zoom link for online participation.
+There is <span style="color:red;">no registration fee</span> for the workshop; however, the number of **in-person participants is limited to 40**, due to the maximum capacity of the venue. Therefore, respondents will be assigned a spot on a first-come-first-serve basis. 
 
 </div>
 
