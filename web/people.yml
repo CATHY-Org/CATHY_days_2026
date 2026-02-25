@@ -6,6 +6,16 @@
 
 # List of current organiser members
 current:
+
+  - name: Daniele la Cecilia
+    role: Organiser
+    affiliation: University of Modena and Reggio Emilia, IT
+    email: daniele.lacecilia@eawag.ch
+    orcid: 0000-0003-1898-7088
+    researchgate: https://www.researchgate.net/profile/Daniele-La-Cecilia
+    website: https://www.linkedin.com/in/daniele-la-cecilia-8b805393/
+
+    
   - name: Benjamin Mary
     role: Organiser
     affiliation: University of Padua, IT
@@ -15,16 +25,7 @@ current:
     orcid: 0000-0001-7199-2885
     researchgate: https://www.researchgate.net/profile/Benjamin-Mary-2
     website: https://benjmy.github.io/myCareerBook/intro.html
-    
-  - name: Daniele la Cecilia
-    role: Organiser
-    affiliation: University of Padua, IT
-    email: daniele.lacecilia@eawag.ch
-    orcid: 0000-0003-1898-7088
-    researchgate: https://www.researchgate.net/profile/Daniele-La-Cecilia
-    website: https://www.eawag.ch/en/aboutus/portrait/organisation/staff/profile/daniele-la-cecilia/show
-    
-    
+        
   - name: Matteo Camporese
     role: Organiser
     affiliation: University of Padua, IT
