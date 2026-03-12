@@ -6,25 +6,26 @@
 
 # List of current organiser members
 current:
-  - name: Benjamin Mary
-    role: Organiser
-    affiliation: University of Padua, IT
-    pronouns: he/him
-    github: BenjMy
-    email: benjamin.mary@unipd.it
-    orcid: 0000-0001-7199-2885
-    researchgate: https://www.researchgate.net/profile/Benjamin-Mary-2
-    website: https://benjmy.github.io/myCareerBook/intro.html
-    
+
   - name: Daniele la Cecilia
     role: Organiser
-    affiliation: University of Padua, IT
-    email: daniele.lacecilia@eawag.ch
+    affiliation: University of Modena and Reggio Emilia, IT
+    email: daniele.lacecilia@unimore.it
     orcid: 0000-0003-1898-7088
     researchgate: https://www.researchgate.net/profile/Daniele-La-Cecilia
-    website: https://www.eawag.ch/en/aboutus/portrait/organisation/staff/profile/daniele-la-cecilia/show
+    website: https://www.linkedin.com/in/daniele-la-cecilia-8b805393/
+
     
-    
+  - name: Benjamin Mary
+    role: Organiser
+    affiliation: Spanish National Research Council, ES
+    pronouns: he/him
+    github: BenjMy
+    email: benjamin.mary@ica.csic.es
+    orcid: 0000-0001-7199-2885
+    researchgate: https://www.researchgate.net/profile/Benjamin-Mary-2
+    website: https://benjmy.github.io/myCareerBook/
+        
   - name: Matteo Camporese
     role: Organiser
     affiliation: University of Padua, IT
@@ -53,4 +54,12 @@ current:
     google_scholar: https://scholar.google.com/citations?user=e8j5TjsAAAAJ&hl=it
     researchgate: https://www.researchgate.net/profile/Mario-Putti
     website: https://www.math.unipd.it/~putti/
+
+  - name: Luca Peruzzo
+    role: Organiser
+    affiliation: Department of Geosciences - University of Padova
+    email: luca.peruzzo.1@unipd.it
+    orcid: 0000-0002-4065-8910
+    google_scholar: https://scholar.google.com/citations?user=zYvLRr0AAAAJ&hl=it
+    researchgate: https://www.researchgate.net/profile/Luca-Peruzzo-2
     
