@@ -84,19 +84,78 @@
 
   <main>
       <section class="container page-content">
-        <div class="row mb-3 align-items-center">
+        <style>
+  /* ── Shared palette (mirrors agenda) ── */
+  :root {
+    --c-navy:    #1a2e44;
+    --c-blue-lt: #eef4fb;
+    --c-blue-md: #3a5a80;
+    --c-amber:   #fdf3e3;
+    --c-amber-dk:#6b4400;
+    --c-green-lt:#e9f6ef;
+    --c-green-dk:#0d4a25;
+    --c-purple-lt:#f0ebfa;
+    --c-purple-dk:#3b1a72;
+    --c-red-lt:  #fde8e8;
+    --c-tag-br:  #f5c97a;
+    --c-tag-so:  #82d9a8;
+    --c-tag-op:  #c5adee;
+  }
+
+  /* callout override */
+  .callout { background: var(--c-blue-lt); border-left: 4px solid var(--c-blue-md); border-radius: 6px; padding: 14px 18px; }
+  .callout-success { background: var(--c-green-lt); border-left: 4px solid #2a9e5e; }
+
+  /* key-dates banner */
+  .key-dates {
+    border-left: 4px solid var(--c-navy);
+    background: var(--c-purple-lt);
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 0.97rem;
+  }
+  .key-dates strong { color: var(--c-navy); }
+
+  /* section headers accent */
+  h2 { border-bottom: 2px solid var(--c-blue-md); padding-bottom: 4px; color: var(--c-navy); }
+
+  /* venue card */
+  .venue-card {
+    background: var(--c-blue-lt);
+    border-left: 4px solid var(--c-blue-md);
+    border-radius: 6px;
+    padding: 14px 18px;
+  }
+  .venue-card a { color: var(--c-blue-md); font-weight: 600; }
+
+  /* transport table */
+  .transport-table { width: 100%; border-collapse: separate; border-spacing: 0 5px; font-size: 0.91rem; font-family: inherit; }
+  .transport-table thead th { background: var(--c-navy); color: #fff; padding: 9px 14px; text-align: left; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
+  .transport-table thead th:first-child { border-radius: 8px 0 0 8px; }
+  .transport-table thead th:last-child  { border-radius: 0 8px 8px 0; }
+  .transport-table tbody td { padding: 10px 14px; vertical-align: top; line-height: 1.45; }
+  .transport-table tbody td:first-child { border-radius: 8px 0 0 8px; font-weight: 600; white-space: nowrap; }
+  .transport-table tbody td:last-child  { border-radius: 0 8px 8px 0; }
+  .tr-train  { background: var(--c-blue-lt);   } .tr-train:hover  { background: #ddeaf7; }
+  .tr-plane  { background: var(--c-amber);     } .tr-plane:hover  { background: #fae8cc; }
+  .tr-car    { background: var(--c-green-lt);  } .tr-car:hover    { background: #d4edde; }
+  .tr-local  { background: var(--c-purple-lt); } .tr-local:hover  { background: #e3d8f5; }
+  .transport-table tbody tr { transition: background 0.15s ease; }
+  .mode-icon { font-size: 1.2em; margin-right: 6px; }
+
+  img { border-radius: 4px; width: 150px; }
+  #envitam { width: 450px; }
+</style>
+<div class="row mb-3 align-items-center">
 <div class="col-md-9 col-sm-8 col-8">
-<!--
-# CATHY days 2026
--->
 <h1 id="cathy-days-2026">CATHY days 2026</h1>
 <p class="lead">
-We are thrilled to announce that in **2026** we will renew the tradition and organise the <b>CATchment HYdrology (CATHY) days </b>!
+We are thrilled to announce that in **2026** we will renew the tradition and organise the <b>CATchment HYdrology (CATHY) days</b>!
 </p>
 </div>
 <div class="col-md-3 col-sm-4 col-4">
   <img alt="Seminar logo" src="images/Camporese_WRR_10.1029_2019WR025726.png">
-  <small> <i> [1] </i> </small>
+  <small><i>[1]</i></small>
 </div>
 </div>
 <h2 id="about-this-event">About this event</h2>
@@ -106,7 +165,7 @@ We are thrilled to announce that in **2026** we will renew the tradition and org
 </div>
 <hr>
 <h2 id="key-dates">Key dates</h2>
-<div style="border-left: 4px solid red; background-color: #ffe6e6; padding: 12px; border-radius: 5px;">
+<div class="key-dates">
   <strong>⚠️ Registration deadline:</strong> March 31st, 2026<br>
   <strong>📅 Seminar days:</strong> July 3rd, 2026
 </div>
@@ -118,36 +177,101 @@ We are thrilled to announce that in **2026** we will renew the tradition and org
 <p>Want to join? <a href="https://saco.csic.es/apps/forms/s/naAyMppTzXwKPdssZeDPfKrY">Registration are open</a>!</p>
 <hr>
 <h2 id="venue-modena-it">Venue: Modena (IT)</h2>
-<div class="callout callout-success">
-<p>The event will be held in Modena (IT) [location in the city centre, details will come]</p>
+<div class="venue-card">
+  📍 The workshop will be held at the <strong>Department of Engineering "Enzo Ferrari"</strong><br>
+  <a href="https://maps.app.goo.gl/HpBkeiKqQnsJjVPq6" target="_blank">Via Vivarelli 10, 41125 Modena (IT)</a>
 </div>
-<!--
-🚌 The easiest way to reach the workshop venue from ---
--->
-<p>Additional information can be found on the workshop <a href="">Venue link to come</a></p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64218.80988094948!2d10.88053281601105!3d44.650169744329766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fef12dd4964e1%3A0x96751e7d492b7f28!2sModena%2C%20Province%20of%20Modena%2C%20Italy!5e1!3m2!1sen!2ses!4v1769775727174!5m2!1sen!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<br>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2836.4!2d10.9481!3d44.6285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fef3b2b5b5b5b%3A0x1!2sVia+Vivarelli+10%2C+41125+Modena!5e1!3m2!1sen!2ses" width="100%" height="380" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <hr>
-<hr size="3" noshade> 
+<h2 id="how-to-get-there">How to get there</h2>
+<table class="transport-table">
+  <thead>
+    <tr>
+      <th>Mode</th>
+      <th>From</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-train">
+      <td><span class="mode-icon">🚆</span> Train</td>
+      <td><strong>Bologna Centrale</strong></td>
+      <td>Direct regional trains to <em>Modena station</em> run every 20–30 min (~25 min journey). From Modena station, the Engineering Department is a 15-min walk or a short taxi/bus ride.</td>
+    </tr>
+    <tr class="tr-train">
+      <td><span class="mode-icon">🚆</span> Train</td>
+      <td><strong>Milano Centrale</strong></td>
+      <td>High-speed trains (Frecciarossa/Italo) to <em>Bologna</em> (~1 h), then regional to Modena. Alternatively, direct intercity trains to Modena (~1 h 40 min).</td>
+    </tr>
+    <tr class="tr-plane">
+      <td><span class="mode-icon">✈️</span> Plane</td>
+      <td><strong>Bologna Airport (BLQ)</strong></td>
+      <td>Closest international airport (~40 km). Take the Marconi Express to Bologna Centrale (~7 min), then a regional train to Modena (~25 min). Total door-to-door ≈ 1 h.</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
 <h2 id="sponsors-">Sponsors 🙌</h2>
 <style>
-img {
-  border-radius: 4px;
-  width: 150px;
-}
-
-#envitam {
-  width: 450px;
-}
+  .sponsor-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 1.2rem;
+  }
+  .sponsor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--c-blue-lt);
+    border: 1px solid #d0e4f7;
+    border-radius: 10px;
+    padding: 1.2rem 2rem;
+    text-decoration: none;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .sponsor-item:hover {
+    box-shadow: 0 4px 16px rgba(26,46,68,0.12);
+    transform: translateY(-2px);
+  }
+  .sponsor-item svg {
+    height: 64px;
+    width: auto;
+  }
+  .sponsor-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--c-blue-md);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .sponsor-full {
+    font-size: 0.72rem;
+    color: #666;
+    text-align: center;
+    max-width: 180px;
+    line-height: 1.3;
+  }
 </style>
-<div class="callout">
-The seminar is supported by the Università degli Studi di Modena e Reggio Emilia
-</ul>    
-</p>
+<div class="sponsor-grid">
+  <!-- UNIMORE -->
+  <a class="sponsor-item" href="https://www.unimore.it/en" target="_blank">
+  <img src="./images/unimore.png">
+  </a>
+  <!-- UNIPD -->
+  <a class="sponsor-item" href="https://www.unipd.it/en" target="_blank">
+  <img src="./images/unipd.png">
+  </a>
 </div>
+<hr>
 <h2 id="useful-links">Useful links</h2>
 <p><a href="https://github.com/CATHY-Org">Github CATHY group organisation</a></p>
 <hr>
-<p><small> <i> [1] Camporese et al. 2019 [10.1029/2019WR025726, fig. 6] </i> </small></p>
+<p><small><i>[1] Camporese et al. 2019 [10.1029/2019WR025726, fig. 6]</i></small></p>
 <h2 id="contact">Contact</h2>
 <p class="lead">
 Interested in participating? Get in touch with a committee member directly.
@@ -455,8 +579,8 @@ Interested in participating? Get in touch with a committee member directly.
   <footer>
     <div class="container">
       <p>
-        Last updated 2026/03/12 from commit
-        <a href="https://github.com/CATHY-Org/CATHY_days_2026/commit/5974939"><code>5974939</code></a>.
+        Last updated 2026/06/05 from commit
+        <a href="https://github.com/CATHY-Org/CATHY_days_2026/commit/25e091b"><code>25e091b</code></a>.
         Built with <a href="https://nene.leouieda.com">Nēnē</a> v0.8.0.
       </p>
       <p>
