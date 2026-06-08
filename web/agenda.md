@@ -77,6 +77,11 @@ template: base.html
       </tr>
       <tr class="row-talk">
         <td class="time-col">11:20 – 11:40</td>
+        <td class="spk-col">Elena Bachini<br><span class="affil">UNIPD</span></td>
+        <td>Geometric Shallow Water vs Zero-Inertia Approximations for Coupled Surface–Subsurface Hydrological Simulations</td>
+      </tr>
+      <tr class="row-talk">
+        <td class="time-col">11:40 – 12:00</td>
         <td class="spk-col">Rachit Soni<br><span class="affil">UNIMORE</span></td>
         <td>Levee Reliability Under Flood and Burrowing Mammal Erosion</td>
       </tr>
@@ -86,12 +91,12 @@ template: base.html
         <td>A Gaussian Process-based Metamodel for CATHY with High-Dimensional Spatio-Temporal Data</td>
       </tr>
       <tr class="row-break">
-        <td class="time-col">12:00 – 12:30</td>
+        <td class="time-col">12:20 – 12:40</td>
         <td class="spk-col">—</td>
         <td><span class="tag tag-break">💬 Discuss</span> Open Discussions</td>
       </tr>
       <tr class="row-break">
-        <td class="time-col">12:30 – 14:00</td>
+        <td class="time-col">12:40 – 14:00</td>
         <td class="spk-col">—</td>
         <td><span class="tag tag-break">🍽️ Lunch</span> Lunch Break</td>
       </tr>
@@ -106,7 +111,7 @@ template: base.html
         <td>pyCATHY: A Python Wrapper for Data Assimilation in CATHY</td>
       </tr>
       <tr class="row-talk">
-        <td class="time-col">11:40 – 12:00</td>
+        <td class="time-col">12:00 – 12:20</td>
         <td class="spk-col">Lauvernet Claire<br><span class="affil">INRAE</span></td>
         <td>Comparison of Two Classes of Integrated Surface–Subsurface Flow and Solute Transport Models Using Uncertainty Quantification Methods</td>
       </tr>
