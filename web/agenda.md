@@ -81,9 +81,9 @@ template: base.html
         <td>Levee Reliability Under Flood and Burrowing Mammal Erosion</td>
       </tr>
       <tr class="row-talk">
-        <td class="time-col">11:40 – 12:00</td>
-        <td class="spk-col">Lauvernet Claire<br><span class="affil">INRAE</span></td>
-        <td>Comparison of Two Classes of Integrated Surface–Subsurface Flow and Solute Transport Models Using Uncertainty Quantification Methods</td>
+        <td class="time-col">14:40 – 15:00</td>
+        <td class="spk-col">Hadi Nasser<br><span class="affil">INRAE</span></td>
+        <td>A Gaussian Process-based Metamodel for CATHY with High-Dimensional Spatio-Temporal Data</td>
       </tr>
       <tr class="row-break">
         <td class="time-col">12:00 – 12:30</td>
@@ -106,9 +106,9 @@ template: base.html
         <td>pyCATHY: A Python Wrapper for Data Assimilation in CATHY</td>
       </tr>
       <tr class="row-talk">
-        <td class="time-col">14:40 – 15:00</td>
-        <td class="spk-col">Hadi Nasser<br><span class="affil">INRAE</span></td>
-        <td>A Gaussian Process-based Metamodel for CATHY with High-Dimensional Spatio-Temporal Data</td>
+        <td class="time-col">11:40 – 12:00</td>
+        <td class="spk-col">Lauvernet Claire<br><span class="affil">INRAE</span></td>
+        <td>Comparison of Two Classes of Integrated Surface–Subsurface Flow and Solute Transport Models Using Uncertainty Quantification Methods</td>
       </tr>
       <tr class="row-wrapup">
         <td class="time-col">15:00</td>
