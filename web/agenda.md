@@ -86,7 +86,7 @@ template: base.html
         <td>Levee Reliability Under Flood and Burrowing Mammal Erosion</td>
       </tr>
       <tr class="row-talk">
-        <td class="time-col">14:40 – 15:00</td>
+        <td class="time-col">12:00 – 12:20</td>
         <td class="spk-col">Hadi Nasser<br><span class="affil">INRAE</span></td>
         <td>A Gaussian Process-based Metamodel for CATHY with High-Dimensional Spatio-Temporal Data</td>
       </tr>
