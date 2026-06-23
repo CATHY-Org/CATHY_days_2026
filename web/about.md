@@ -8,10 +8,7 @@ template: base.html
 
 ## About this event
 
-
-
 <div class="callout callout-success">
-
 
 The meeting will be focused around a number of full-length talks (30-45 min) plus several shorter presentations (5-15 min, depending on the total number of contributions) that will address current progress and challenges in: 
 
@@ -19,6 +16,25 @@ The meeting will be focused around a number of full-length talks (30-45 min) plu
 * Transport modelling for contaminants
 * Data Assimilation 
 * Catchment Hydrology at large
+
+</div>
+
+---
+
+## 🔭 Geophysical Observatory Visit & Social Logistics
+
+<div class="callout callout-info">
+
+<strong>How to get there:</strong>
+* 🚌 **Bus:** Take **Bus No. 7** directly from the University to the city center.
+* 🛑 **Stop:** Disembark at the **Piazza Mazzini** station.
+* 🚶‍♂️ **Walking:** From Piazza Mazzini, take a short walk over to **Piazza Roma**.
+
+<strong>Key Details:</strong>
+* ⏱️ **Meeting Time:** ~6:00 PM (tentative)
+* 🗺️ **Tour Guide:** Francesca Despini will be our official guide for the visit!
+
+</div>
 
 
 </div>

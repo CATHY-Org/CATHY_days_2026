@@ -72,8 +72,8 @@ template: base.html
       </tr>
       <tr class="row-talk">
         <td class="time-col">11:00 – 11:20</td>
-        <td class="spk-col">Matthew W Farthing</td>
-        <td>TBA</td>
+        <td class="spk-col">Maddalena Crepaldi</td>
+        <td>Multiphysics modelling of a river levee affected by mammal bioerosion</td>
       </tr>
       <tr class="row-talk">
         <td class="time-col">11:20 – 11:40</td>
@@ -111,7 +111,7 @@ template: base.html
         <td>pyCATHY: A Python Wrapper for Data Assimilation in CATHY</td>
       </tr>
       <tr class="row-talk">
-        <td class="time-col">12:00 – 12:20</td>
+        <td class="time-col">14:40 – 15:00</td>
         <td class="spk-col">Lauvernet Claire<br><span class="affil">INRAE</span></td>
         <td>Comparison of Two Classes of Integrated Surface–Subsurface Flow and Solute Transport Models Using Uncertainty Quantification Methods</td>
       </tr>
@@ -123,7 +123,10 @@ template: base.html
       <tr class="row-social">
         <td class="time-col">Evening</td>
         <td class="spk-col">—</td>
-        <td><span class="tag tag-social">🔭 Social</span> Visit Geophysical Observatory + Social Dinner</td>
+        <td>
+          <span class="tag tag-social">🔭 Social</span> 
+          <a href="about.html">Visit Geophysical Observatory</a> + Social Dinner
+        </td>
       </tr>
     </tbody>
   </table>
